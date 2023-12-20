@@ -53,10 +53,10 @@ export class TasksService {
     });
   }
 
-  async getAllConcluded(isActive: boolean){
+  async getAllConcluded(){
     return await this.prisma.tasks.findMany({
       where: {
-        isActive : isActive
+        isActive : false
       }      
     });
   }
