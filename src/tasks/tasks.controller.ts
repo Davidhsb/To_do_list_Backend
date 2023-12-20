@@ -22,9 +22,9 @@ export class TasksController {
     return this.tasksService.findOne(+id);
   }
 
-  @Get('concluded')
-  findAllConcluded(){
-    return this.tasksService.getAllConcluded();
+  @Get('concluded/:isActive')
+  findAllConcluded(@Param('isActive') isActive: boolean){
+    return this.tasksService.getAllConcluded(isActive === false);
   }
 
   @Get('tag/:tag_id')

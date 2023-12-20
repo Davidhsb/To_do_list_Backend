@@ -20,7 +20,7 @@ export class TasksService {
   async findOne(id: number) {
     return await this.prisma.tasks.findUnique({
       where: {
-        id
+        id : id
       }
     });
   }
@@ -53,10 +53,10 @@ export class TasksService {
     });
   }
 
-  async getAllConcluded(){
+  async getAllConcluded(isActive: boolean){
     return await this.prisma.tasks.findMany({
       where: {
-        isActive : false
+        isActive : isActive
       }      
     });
   }
